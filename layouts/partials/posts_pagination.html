@@ -1,0 +1,52 @@
+{{ if or .NextInSection .PrevInSection }}
+<div class="pagination">
+
+    {{ partial "prompt.html" . }}ls -al .*
+    <table class="ls">
+
+      <tr>
+      <td>rw-r--r--</td>
+      <td>{{ .Params.author }}</td>
+      <td>4096</td>
+      <td>{{ .Date.Format "January 2 2006" }}</td>
+      <td><a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}">.</a></td>
+      </tr>
+      <tr>
+      <td>rw-r--r--</td>
+      <td>{{ .Params.author }}</td>
+      <td>4096</td>
+      <td>{{ .Date.Format "January 2 2006" }}</td>
+      <td><a href="https://fehmer.info">..</a></td>
+      </tr>
+
+    {{ if .NextInSection }}
+      {{ with .NextInSection}}
+      <tr>
+      <td>rw-r--r--</td>
+      <td>{{ .Params.author }}</td>
+      {{ $sizeInBytes := len .Content }}
+      <td>{{ div $sizeInBytes 1024 }}K</td>
+      <td>{{ .Date.Format "January 2 2006" }}</td>
+      <td><a href="{{ .Permalink }}">.next</a> -> {{ replace .Title " " "_" | markdownify }}.md</td>
+      </tr>
+      {{ end }}
+    {{ end }}
+
+     {{ if .PrevInSection }}
+      {{ with .PrevInSection}}
+      <tr>
+      <td>rw-r--r--</td>
+      <td>{{ .Params.author }}</td>
+      {{ $sizeInBytes := len .Content }}
+      <td>{{ div $sizeInBytes 1024 }}K</td>
+      <td>{{ .Date.Format "January 2 2006" }}</td>
+      <td><a href="{{ .Permalink }}">.prev</a> -> {{ replace .Title " " "_" | markdownify }}.md</td>
+      </tr>
+      {{ end }}
+    {{ end }}
+
+    </table>
+
+    {{ partial "prompt.html" . }}<span id="input"></span>
+</div>
+{{ end }}

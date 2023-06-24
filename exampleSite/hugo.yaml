@@ -1,0 +1,21 @@
+baseurl: "https://example.com/"
+languageCode: "en-us"
+title: "hugo theme crt"
+theme: "hugo-theme-crt"
+paginate: 9999
+
+markup:
+  highlight:
+    style: solarized-dark
+
+params:
+  links:
+    - href: "https://github.com/fehmer/hugo-theme-crt"
+      title: "theme on github"
+      icon: github
+    - href: "https://fehmer.info"
+      title: "author homepage"
+      icon: homepage
+    - href: "https://keebs.fehmer.info"
+      title: "author keyboard page"
+      icon: keyboard

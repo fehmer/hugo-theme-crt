@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="{{ .Permalink }}" />
+{{- hugo.Generator }}
+
+
+<!-- Theme CSS -->
+{{ $vars := dict
+  "color_text" (or site.Params.style.color_text "#209618")
+  "color_background" (or site.Params.style.color_background "#171717")
+  "color_link" (or site.Params.style.color_link "#2CC920")
+  "color_link_visited" (or site.Params.style.color_link_visited "#2CC920")
+  "color_accent" (or site.Params.style.color_accent "#2CC920")
+  "color_logo" (or site.Params.style.color_logo "#2CC920")
+  "color_copyright" (or site.Params.style.color_copyright "#209618")
+  "color_hugo" (or site.Params.style.color_hugo "#26B01C")
+  "color_theme" (or site.Params.style.color_theme "#2CC920")
+
+}}
+
+{{ $opts := (dict "targetPath" "style.css" "transpiler" "dartsass" "outputStyle" "compressed" "vars" $vars ) }}
+{{- $style := resources.Get "sass/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS $opts | minify | fingerprint }}
+<link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+
+<!-- Custom CSS to override theme properties (/static/custom.css) -->
+{{ if (fileExists "static/custom.css") -}}
+  <link rel="stylesheet" type="text/css" href="{{ "custom.css" | absURL }}">
+{{- end }}
+
+<!-- Icons -->
+<link rel="manifest" href="{{ $.Site.Params.favicon}}/manifest.webmanifest">
+<link rel="icon" href="{{ $.Site.Params.favicon}}/favicon.ico" sizes="any">
+<link rel="icon" href="{{ $.Site.Params.favicon}}/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ $.Site.Params.favicon}}/apple-touch-icon.png">

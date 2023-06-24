@@ -1,0 +1,35 @@
+@use "hugo:vars" as h;
+
+.ls{
+  border:  none;
+  margin-top:  0px;
+}
+
+.ls td{
+    border: none;
+    padding:  0px;
+}
+
+.ls a{
+    text-decoration: none;
+    color: h.$color_link;
+}
+
+.ls a:visited{
+    color: h.$color_link_visited;
+}
+
+.ls a:hover,.ls a:focus{
+    color: h.$color_accent;
+}
+
+@media (max-width: 684px){
+    /* hide optional columns in listing */
+    .ls td:nth-child(-n+3){
+        display: none;
+    }
+}
+
+.prompt {
+    color: h.$color_accent;
+}
