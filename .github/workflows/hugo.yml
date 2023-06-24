@@ -59,9 +59,8 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-            --themesDir ../ 
-            --theme .  
-            --source ./exampleSite
+            --themesDir "${PWD%/*}"
+            --source exampleSite
             --destination ../public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
