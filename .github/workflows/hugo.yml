@@ -30,7 +30,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.114.0
+      HUGO_VERSION: 0.114.1
     steps:
       - name: Install Hugo CLI
         run: |
@@ -61,7 +61,8 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/"
             --themesDir ../ 
             --theme .  
-            --source exampleSite
+            --source ./exampleSite
+            --destination ../public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
