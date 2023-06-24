@@ -1,0 +1,149 @@
+@use "hugo:vars" as h;
+
+.posts {
+  width: 100%;
+}
+
+.post {
+    margin: 20px 0px;
+    width: 100%;
+    text-align: left;
+    padding: 20px 0;
+
+    @media (max-width: 900px) {
+        max-width: 660px;
+    }
+    &:not(:last-of-type) {
+        border-bottom: 1px solid h.$color_accent;
+    }
+    &-title {
+        color: h.$color_accent;
+        position: relative;
+        margin: 0 0 15px;
+        padding-bottom: 15px;
+        border-bottom: 3px dotted h.$color_accent;
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 2px;
+          display: block;
+          width: 100%;
+          border-bottom: 3px dotted h.$color_accent;
+      }
+
+      a {
+          text-decoration: none;
+      }
+  }
+
+
+  img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+  }
+
+}
+
+.posts, div.post{
+    margin-top:  0px;
+    padding-top:  0px;
+}
+
+/* facts tables do not have a header */
+#facts + table thead {
+    display: none;
+}
+
+.post-title{
+    padding-top:  25px;
+}
+
+/* markdown style headers */
+h1:before{
+    content: '#';
+}
+
+h2:before{
+    content: '## ';
+}
+
+h3:before{
+    content: '### ';
+}
+
+.hanchor {
+  color: h.$color_accent;
+  text-decoration: none;
+  margin-left: 10px;
+  visibility: hidden;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a {
+  visibility: visible;
+}
+
+
+p {
+  margin-bottom: 20px;
+}
+
+table {
+  table-layout: auto;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 40px 0;
+}
+
+table,
+th,
+td {
+  border: 1px dashed h.$color_accent;
+  padding: 10px;
+}
+
+th {
+  color: h.$color_accent;
+}
+
+ul,
+ol {
+  margin-left: 30px;
+  padding: 0;
+
+  li {
+    position: relative;
+  }
+
+  @media (max-width: 684px) {
+    margin-left: 20px;
+  }
+}
+
+ol {
+  list-style: none;
+  counter-reset: li;
+
+  li {
+    counter-increment: li;
+  }
+
+  li:before {
+    content: counter(li);
+    position: absolute;
+    right: calc(100% + 10px);
+    color: h.$color_accent;
+    display: inline-block;
+    text-align: right;
+  }
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+
+a {
+  color: inherit;
+}

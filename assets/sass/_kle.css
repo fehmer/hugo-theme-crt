@@ -1,0 +1,32 @@
+.kle .row {
+  padding-top: 2px;
+  overflow: hidden;
+}
+
+.kle .key {
+  height: 50px;
+  float: left;
+  background-color: white;
+  margin-left: 2px;
+  color: #000000;
+  line-height: 50px;
+  text-align: center;
+  overflow: hidden;
+  text-shadow: none;
+  font-size: 0.4em;
+}
+
+.kle .single{
+  font-size: 0.6em;
+}
+
+@media (min-width: 1000px) {
+  .kle .key {
+    height: 80px;
+    line-height: 80px;
+    font-size: 1em;
+  }
+  .kle .single{
+    font-size: 1.4em;
+  }
+}

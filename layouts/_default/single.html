@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="post">
+
+  {{ partial "prompt.html" . }}ls -l {{ replace .Title " " "_" | markdownify }}.md
+
+  <table class="ls">
+    <tr>
+      <td>rw-r--r--</td>
+      <td>{{ .Params.author }}</td>
+      {{ $sizeInBytes := len .Content }}
+      <td>{{ div $sizeInBytes 1024 }}K</td>
+      <td>{{ .Date.Format "January 2 2006" }}</td>
+      <td><a href="{{ .Permalink }}">{{ replace .Title " " "_" | markdownify }}.md</a></td>
+    </tr>
+  </table>
+
+  {{ partial "prompt.html" . }}cat {{ replace .Title " " "_" | markdownify }}.md
+
+  <h1 class="post-title">
+    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+
+  {{ if .Params.hero }}
+    {{$image:= .Params.hero}}
+    {{$image = resources.Get $image }}
+    <img src="{{ $image.RelPermalink }}" alt="{{ .Title | plainify | default " " }}" width="{{ $image.Width }}" height="{{ $image.Height }}" />
+  {{ end }}
+
+  <div class="post-content">
+    {{- with .Content -}}
+      <div>
+        {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor">&#8983;</a> ${3}` | safeHTML }}
+      </div>
+    {{- end -}}
+  </div>
+
+  {{ partial "posts_pagination.html" . }}
+</div>
+{{ end }}

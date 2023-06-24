@@ -1,0 +1,73 @@
+{{ $src := .Get "src" }}
+{{ $all := index .Site.Data $src }}
+{{ $cols := .Get "cols" }}
+{{ $width := $cols }}
+{{ $height := "" }}
+{{ range $kle := $all.layers }}
+
+    {{ $color := "white" }}
+    {{ $text := "black" }}
+    {{ $x := ""}}
+    {{ $y := ""}}
+    {{ $single := "" }}
+
+    <h3 id="{{$kle.name}}">{{ $kle.name }} layer</h3>
+
+    <div class="kle">
+        {{ range $line := $kle.layout }}
+        <div class="row">
+        {{ range $key := $line }}
+
+            {{ if strings.HasPrefix (printf "%T" $key) "map[" }}
+                {{/* kle options  */}}
+
+                {{ if isset $key "c" }}
+                    {{ $color = $key.c }}
+                {{ end }}
+
+                {{ if isset $key "t" }}
+                    {{ $text = $key.t }}
+                {{ end }}
+
+                {{ if isset $key "w" }}
+                    {{ $width = (printf "%s*%f + 2px" $cols $key.w) }}
+                {{ end }}
+
+              {{ if isset $key "x" }}
+                    {{ $x = $key.x }}
+                {{ end }}
+
+                {{ if isset $key "y" }}
+                    {{ $y = $key.y }}
+                {{ end }}
+
+            {{ else }}
+                {{/* normal key  */}}
+
+                {{ if lt (len $key) 3 }}
+                    {{ $single = "single" }}
+                {{ else }}
+                    {{ $single = "" }}
+                {{ end }}
+
+                <div class="key {{$single}}" style="{{/*
+                    */}} background-color: {{$color}};{{/*
+                    */}} color: {{$text}}; {{/*
+                    */}} width: calc(85%/{{$width}});{{/*
+                    */}} {{ if $x }}margin-left: calc(85%/{{$cols}}*{{$x}}); {{end}}{{/*
+                    */}} {{ if $y }}margin-top: calc(85%/{{$cols}}*{{$y}}); {{end}}{{/*
+                */}}">{{ emojify $key}}</div>
+                
+                {{/* reset defaults */}}
+                {{ $width = $cols }}
+                {{ $height = "" }}
+                {{ $x = "" }}
+            {{ end }}                 
+        {{ end}}
+        {{ $y = "" }}
+        </div>
+    {{ end }}
+    </div>
+
+    <p> {{ $kle.desc | markdownify }} </p>
+{{ end }}

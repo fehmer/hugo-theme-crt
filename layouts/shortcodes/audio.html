@@ -1,0 +1,7 @@
+<audio controls
+    class="audio_controls {{ .Get "class" }}" preload="metadata"
+>
+    <source {{ with .Get "src" }}src="{{ . }}"{{ end }}
+        {{ with .Get "type" }}type="audio/{{ . }}"{{ end }}>
+    Your browser does not support the audio element
+</audio>

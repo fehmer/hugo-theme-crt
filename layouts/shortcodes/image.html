@@ -1,0 +1,11 @@
+{{$src := .Get "src"}}
+{{$alt := .Get "alt"}}
+{{$image := "" }}
+{{if hasPrefix $src "http" }}
+  {{$image = resources.GetRemote  $src}}
+{{else}}
+  {{$image = resources.Get $src}}
+{{end}}
+{{ if $image }}
+  <img src="{{ $image.RelPermalink }}"  alt="{{ default "" $alt | plainify }}" {{ if eq $image.MediaType.SubType "svg" }} {{ else }} width="{{ $image.Width }}" height="{{ $image.Height }}" {{end}} />
+{{ end }}

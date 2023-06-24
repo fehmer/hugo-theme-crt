@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+  <div class="posts">
+    {{ $PageContext := . }}
+    {{ if .IsHome }}
+      {{ $PageContext = .Site }}
+    {{ end }}
+    {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" "post") }}
+
+    {{ partial "prompt.html" . }}ls -tl
+
+    <table class="ls">
+
+    {{ range $paginator.Pages }}
+    <tr>
+      <td>rw-r--r--</td>
+      <td>{{ .Params.author }}</td>
+      {{ $sizeInBytes := len .Content }}
+      <td>{{ div $sizeInBytes 1024 }}K</td>
+      <td>{{ .Date.Format "January 2 2006" }}</td>
+      <td><a href="{{ .Permalink }}">{{ replace .Title " " "_" | markdownify }}.md</a></td>
+    </tr>
+
+
+    {{ end }}
+    </table>
+
+    {{ partial "prompt.html" . }}<span id="input"></span>
+  </div>
+
+{{ end }}

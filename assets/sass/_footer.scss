@@ -1,0 +1,70 @@
+@use "hugo:vars" as h;
+
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding: 0px;
+    font-size: 1em;
+
+    .info{
+        float:left;
+
+        span.end{ content:''; color: h.$color_theme}
+
+
+        a{
+            color: inherit;
+        }
+
+        span {
+            color: #2E3436;
+        }
+
+        span::before{
+            content: '';
+        }
+
+        span.copyright{
+            background: h.$color_copyright;
+            &::before { content: ''; }
+        }
+
+        span.hugo {
+            background-color: h.$color_hugo;
+            &::before { color:h.$color_copyright; }
+        }
+
+        span.theme {
+            background-color: h.$color_theme;
+            &::before { color:h.$color_hugo; }
+
+
+        }
+    }
+
+    .links-container{
+        float: right;
+
+        span.start{
+            &::before{
+                content: '';
+                color: h.$color_accent;
+            }
+        }
+
+        span.links{
+            background-color:  h.$color_accent;
+        }
+
+        svg{
+            height: 15px;
+            width: 15px;
+            path {
+                fill: h.$color_text;
+            }
+        }
+
+
+    }
+}
