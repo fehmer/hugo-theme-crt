@@ -2,6 +2,10 @@
 
 A minimal theme emulating a linux terminal on an old CRT monitor. This theme is inspired by the now discontinued [hugo-theme-terminal](https://github.com/panr/hugo-theme-terminal).
 
+## Demo
+
+Demo : https://hugo-theme-crt.fehmer.info/
+
 
 ## Requirements
 
