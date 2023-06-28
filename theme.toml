@@ -3,7 +3,7 @@ license = "MIT"
 licenselink = "https://github.com/fehmer/hugo-theme-crt/blob/main/LICENSE"
 description = "Simple retro theme emulating a linux terminal on an old CRT monitor"
 homepage = "https://github.com/fehmer/hugo-theme-crt/"
-tags = ["blog", "clean", "customizable", "dark", "minimal", "monotone", "personal", "responsive", "simple", "technical", "retro"]
+tags = ["blog", "clean", "customizable", "dark", "minimal", "monotone", "monochrome", "personal", "responsive", "simple", "technical", "retro"]
 features = ["blog", "shortcode", "sass"]
 min_version = 0.109
 

@@ -18,7 +18,7 @@
         }
 
         span {
-            color: #2E3436;
+            color: h.$color_background;
         }
 
         span::before{
@@ -45,6 +45,7 @@
 
     .links-container{
         float: right;
+        color: h.$color_background;
 
         span.start{
             &::before{
@@ -55,13 +56,15 @@
 
         span.links{
             background-color:  h.$color_accent;
+            padding-right: 5px;
         }
 
         svg{
-            height: 15px;
-            width: 15px;
+            height: 1em;
+            width: 1em;
+            vertical-align: text-bottom;
             path {
-                fill: h.$color_text;
+                fill: h.$color_background;
             }
         }
 

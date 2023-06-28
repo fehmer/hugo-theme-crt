@@ -9,6 +9,7 @@ markup:
     style: solarized-dark
 
 params:
+  color: green
   links:
     - href: "https://github.com/fehmer/hugo-theme-crt"
       title: "theme on github"

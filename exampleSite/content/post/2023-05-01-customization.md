@@ -2,10 +2,31 @@
 title: Theme Customization
 date: 2023-05-01
 author: Kevin
-hero: "images/colors.webp"
+hero: "images/hero.gif"
 ---
 
-## Colors
+### Colors
+
+You can specify the monitor color by adding them to the config. Example using  `hugo.yaml`:
+
+```yaml
+params:
+  color: white
+```
+
+The theme offers different colors to pick from.
+
+- `green`, the classic IBM-style P1 phosphor screen
+- `amber`, the "ergonomic" P3 phosphor screen
+- `white`, the boring P4 phosphor screen
+
+In addition there are non historical correct colors
+- `cyan`
+- `purple`
+- `red`
+
+
+### Custom Colors
 
 You can adjust the colors used by defining them in the config. Example using `hugo.yaml`:
 
@@ -21,6 +42,7 @@ params:
     color_copyright: "#8A9B0F"
     color_hugo: "#BD1550"
     color_theme: "#E97F02"
+    color_monochrome: "false"
 ```
 
 ## Logo
@@ -87,10 +109,10 @@ and in the config:
 The default prompt is `➜` and uses the `color_accent`. You can make the prompt more fancy by creating a file called `layouts/partials/prompt.html`. Example to show the author of a post on the prompt if available:
 
 ```html
-{{ if .Params.author }}
-<font color="#209618">{{.Params.author}}@home</font>
+<span class="prompt">{{ if .Params.author }}
+  {{.Params.author}}@home
 {{ end }}
-<font color="#2cc920">&gt;</font>&nbsp;
+&gt;</span>&nbsp;
 ```
 
 

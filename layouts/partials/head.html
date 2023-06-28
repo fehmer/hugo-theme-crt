@@ -7,24 +7,7 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 {{- hugo.Generator }}
 
-
-<!-- Theme CSS -->
-{{ $vars := dict
-  "color_text" (or site.Params.style.color_text "#209618")
-  "color_background" (or site.Params.style.color_background "#171717")
-  "color_link" (or site.Params.style.color_link "#2CC920")
-  "color_link_visited" (or site.Params.style.color_link_visited "#2CC920")
-  "color_accent" (or site.Params.style.color_accent "#2CC920")
-  "color_logo" (or site.Params.style.color_logo "#2CC920")
-  "color_copyright" (or site.Params.style.color_copyright "#209618")
-  "color_hugo" (or site.Params.style.color_hugo "#26B01C")
-  "color_theme" (or site.Params.style.color_theme "#2CC920")
-
-}}
-
-{{ $opts := (dict "targetPath" "style.css" "transpiler" "dartsass" "outputStyle" "compressed" "vars" $vars ) }}
-{{- $style := resources.Get "sass/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS $opts | minify | fingerprint }}
-<link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+{{ partial "css" . }}
 
 <!-- Custom CSS to override theme properties (/static/custom.css) -->
 {{ if (fileExists "static/custom.css") -}}
