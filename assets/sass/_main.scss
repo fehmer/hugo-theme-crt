@@ -1,4 +1,5 @@
-@use "hugo:vars" as h; 
+@use "hugo:vars" as h;
+@use 'sass:color';
 
 body {
   margin: 0;
@@ -64,11 +65,18 @@ body {
 
 .terminal{
     padding: 2rem;
-    text-shadow: 3px 0 1px rgba(0, 30, 255, 0.5),
+    @if h.$color_monochrome == "false" {
+      text-shadow: 
+        3px 0 1px rgba(0, 30, 255, 0.5),
         -3px 0 1px rgba(255, 0, 80, 0.3),
         0 0 3px;
+    } @else {
+      text-shadow: 
+        3px 0 1px color.scale(h.$color_text, $alpha: -80%, $whiteness: -25%),
+        -3px 0 1px color.scale(h.$color_text, $alpha: -70%, $whiteness: -25%),
+        0 0 3px;
+    }
 }
-
 
 ::selection {
     background: h.$color_text;
