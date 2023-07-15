@@ -39,6 +39,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   word-break: break-word;
+  background-image: radial-gradient(ellipse, color.scale(h.$color_background, $lightness: +5%) 0%, h.$color_background 90%);
 
   @media (max-width: 684px) {
     padding: 20px;
