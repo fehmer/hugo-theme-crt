@@ -1,9 +1,9 @@
-@import "variables";
-@import "font";
-@import "main";
-@import "header";
-@import "post";
-@import "footer";
+@use "variables";
+@use "font";
+@use "main";
+@use "header";
+@use "post";
+@use "footer";
 
-@import "ls";
-@import "kle"
+@use "ls";
+@use "kle"
