@@ -8,26 +8,27 @@ A minimal theme emulating a linux terminal on an old CRT monitor. This theme is 
 
 Demo : https://hugo-theme-crt.fehmer.info/
 
-
 ## Requirements
 
-You need Hugo Extended v0.109.0 or higher. 
-
+You need Hugo Extended v0.109.0 or higher.
 
 ## Installation
 
-1. ```git submodule add git@github.com:fehmer/hugo-theme-crt.git themes/hugo-theme-crt```
+1. `git submodule add git@github.com:fehmer/hugo-theme-crt.git themes/hugo-theme-crt`
 2. in the config define
-  -  `theme: "hugo-theme-crt"`
-  - `pagination: 9999`
 
+```yaml
+theme: "hugo-theme-crt"
+
+pagination:
+  pagerSize: 9999
+```
 
 ## Customizations
 
-
 ### Colors
 
-You can specify the monitor color by adding them to the config. Example using  `hugo.yaml`:
+You can specify the monitor color by adding them to the config. Example using `hugo.yaml`:
 
 ```yaml
 params:
@@ -41,10 +42,10 @@ The theme offers different colors to pick from.
 - `white`, the boring P4 phosphor screen
 
 In addition there are non historical correct colors
+
 - `cyan`
 - `purple`
 - `red`
-
 
 ### Custom Colors
 
@@ -67,12 +68,12 @@ params:
 
 ### Logo
 
-To replace the logo, e.g. with an image or an ascii art, create a file called `layouts/partials/logo.html`. 
+To replace the logo, e.g. with an image or an ascii art, create a file called `layouts/partials/logo.html`.
 
 ```html
 <a href="{{ $.Site.BaseURL }}">
-    <div class="logo">
-        <pre style="font-size: .5em;">
+  <div class="logo">
+    <pre style="font-size: .5em;">
 ███▄ ▄███▓▓██   ██▓    ██▓     ▒█████    ▄████  ▒█████  
 ▓██▒▀█▀ ██▒ ▒██  ██▒   ▓██▒    ▒██▒  ██▒ ██▒ ▀█▒▒██▒  ██▒
 ▓██    ▓██░  ▒██ ██░   ▒██░    ▒██░  ██▒▒██░▄▄▄░▒██░  ██▒
@@ -83,8 +84,9 @@ To replace the logo, e.g. with an image or an ascii art, create a file called `l
 ░      ░    ▒ ▒ ░░       ░ ░   ░ ░ ░ ▒  ░ ░   ░ ░ ░ ░ ▒  
 ░    ░ ░            ░  ░    ░ ░        ░     ░ ░  
 ░ ░                                          
-       </pre>
-   </div>
+       </pre
+    >
+  </div>
 </a>
 ```
 
@@ -93,14 +95,14 @@ To replace the logo, e.g. with an image or an ascii art, create a file called `l
 Links are defined in the config. Example using `hugo.yaml`:
 
 ```yaml
-  links:
-    - href: "mailto:me@mywebsite.example"
-      title: "send a mail"
-      icon: email
-    - href: "https://github.com/myuser"
-      title: "github profile"
-      icon: github
-``` 
+links:
+  - href: "mailto:me@mywebsite.example"
+    title: "send a mail"
+    icon: email
+  - href: "https://github.com/myuser"
+    title: "github profile"
+    icon: github
+```
 
 `icon` can be one of `email`, `github`, `homepage`, `npm` or `xing`.
 
@@ -108,18 +110,20 @@ If you want to use different icons you can create a file e.g. `layouts/partials/
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
-    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-    <path d="M40.1 467.1l-11.2 9c-3.2 2.5-7.1 3.9-11.1 3.9C8 480 0 472 0 462.2V192C0 86 86 0 192 0S384 86 384 192V462.2c0 9.8-8 17.8-17.8 17.8c-4 0-7.9-1.4-11.1-3.9l-11.2-9c-13.4-10.7-32.8-9-44.1 3.9L269.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6l-26.6-30.5c-12.7-14.6-35.4-14.6-48.2 0L141.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6L84.2 471c-11.3-12.9-30.7-14.6-44.1-3.9zM160 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
+  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+  <path
+    d="M40.1 467.1l-11.2 9c-3.2 2.5-7.1 3.9-11.1 3.9C8 480 0 472 0 462.2V192C0 86 86 0 192 0S384 86 384 192V462.2c0 9.8-8 17.8-17.8 17.8c-4 0-7.9-1.4-11.1-3.9l-11.2-9c-13.4-10.7-32.8-9-44.1 3.9L269.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6l-26.6-30.5c-12.7-14.6-35.4-14.6-48.2 0L141.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6L84.2 471c-11.3-12.9-30.7-14.6-44.1-3.9zM160 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"
+  />
 </svg>
-``` 
+```
 
 and in the config:
 
 ```yaml
-  links:
-    - href: "https://mywebsite.example"
-      title: "my homepage"
-      icon: ghost
+links:
+  - href: "https://mywebsite.example"
+    title: "my homepage"
+    icon: ghost
 ```
 
 ### Prompt
@@ -127,12 +131,10 @@ and in the config:
 The default prompt is `➜` and uses the `color_accent`. You can make the prompt more fancy by creating a file called `layouts/partials/prompt.html`. Example to show the author of a post on the prompt if available:
 
 ```html
-<span class="prompt">{{ if .Params.author }}
-  {{.Params.author}}@home
-{{ end }}
-&gt;</span>&nbsp;
+<span class="prompt"
+  >{{ if .Params.author }} {{.Params.author}}@home {{ end }} &gt;</span
+>&nbsp;
 ```
-
 
 ### Custom CSS
 
@@ -147,7 +149,6 @@ Define the base path of your favicons in the config. This can be a relative path
 - icon-192.png
 - icon-512.png
 - apple-touch-icon.png
-
 
 ## Shortcodes
 

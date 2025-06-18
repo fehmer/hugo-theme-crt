@@ -2,7 +2,12 @@ baseurl: "https://example.com/"
 languageCode: "en-us"
 title: "hugo theme crt"
 theme: "hugo-theme-crt"
-paginate: 9999
+pagination:
+  pagerSize: 9999
+
+caches:
+  images:
+    dir: :cacheDir/images
 
 markup:
   highlight:
