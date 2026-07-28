@@ -1,5 +1,5 @@
 baseurl: "https://example.com/"
-languageCode: "en-us"
+locale: "en-us"
 title: "hugo theme crt"
 theme: "hugo-theme-crt"
 pagination:

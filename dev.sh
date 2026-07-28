@@ -4,5 +4,5 @@ docker run --rm \
   -v ${PWD}/exampleSite:/src \
   -v ${PWD}:/src/themes/hugo-theme-crt \
   -v ${HOME}/hugo_cache:/tmp/hugo_cache \
-  hugomods/hugo:exts-non-root-0.147.9 \
-  server -p 8080
+  hugomods/hugo:debian-non-root-0.164.0  \
+  server -p 8080 --disableFastRender
