@@ -7,6 +7,10 @@
     padding: 0px;
     font-size: 1em;
 
+    @if h.$color_crt_effect == "false" {
+      margin-left: -40px;
+    }
+
     .info{
         float:left;
 

@@ -66,6 +66,16 @@ params:
     color_monochrome: "false"
 ```
 
+### CRT Effect
+
+By default, the theme renders a CRT monitor background effect (scanlines and chromatic aberration). To disable it, set `color_crt_effect` to `"false"` in your config:
+
+```yaml
+params:
+  style:
+    color_crt_effect: "false"
+```
+
 ### Logo
 
 To replace the logo, e.g. with an image or an ascii art, create a file called `layouts/partials/logo.html`.
